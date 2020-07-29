@@ -87,5 +87,8 @@ def decode_image(image_path, secure_anchor='++++++++++'):
 
 
 # Program start
+print('Start program')
 encode_image('cat.png', 'text.txt', 'cat1.png')
+print('Finish encode')
+print('Start decode:')
 print(decode_image('cat1.png'))
