@@ -1,4 +1,5 @@
 from PIL import Image
+import random
 
 
 def string_to_bin_chain(message_string):
@@ -63,7 +64,10 @@ def encode_image(image_path, text_path, save_path, secure_anchor='++++++++++'):
             new_pixel_tuples.append(encode_pixel(pixel_item, message_chain[message_pointer:message_pointer + 4]))
             message_pointer += 4
         else:
-            new_pixel_tuples.append(pixel_item)
+            noise_chain = [0, 0, 0, 0]
+            for i in range(4):
+                noise_chain[i] = random.randint(0, 1)
+            new_pixel_tuples.append(encode_pixel(pixel_item, noise_chain))
     im.putdata(new_pixel_tuples)
     im.save(save_path, "PNG")
 
