@@ -82,5 +82,6 @@ def decode_image(image_path, secure_anchor='++++++++++'):
     return bin_chain_to_string(message_chain, secure_anchor)
 
 
+# test commit
 encode_image('test.png', 'text.txt', 't1.png')
 print(decode_image('t1.png'))
